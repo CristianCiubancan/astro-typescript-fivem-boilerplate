@@ -5,9 +5,9 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "outDir": "dist",
+    "outDir": "../../dist",
     "types": ["@citizenfx/client", "@citizenfx/server"],
   },
-  "include": ["src-fivem/client/**/*.ts", "src-fivem/server/**/*.ts"],
+  "include": ["client/**/*.ts", "server/**/*.ts"],
   "exclude": ["node_modules"]
 }

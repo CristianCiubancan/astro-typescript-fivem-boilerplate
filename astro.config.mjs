@@ -11,5 +11,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   outDir: "dist/web",
-  srcDir: "src-astro",
+  srcDir: "src/astro",
 });

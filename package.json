@@ -1,13 +1,13 @@
 {
-  "name": "popular-shell",
+  "name": "character-creation",
   "type": "module",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "build:astro": "astro build --tsconfig tsconfig.astro.json",
-    "build:fivem": "tsc -p tsconfig.fivem.json",
+    "build:astro": "astro build --tsconfig ./src/astro/tsconfig.json",
+    "build:fivem": "tsc -p ./src/fivem/tsconfig.json",
     "build": "npm run build:fivem && npm run build:astro",
-    "dev": "astro dev --tsconfig tsconfig.astro.json",
+    "dev": "astro dev --tsconfig ./src/astro/tsconfig.json",
     "preview": "astro preview",
     "astro": "astro"
   },
