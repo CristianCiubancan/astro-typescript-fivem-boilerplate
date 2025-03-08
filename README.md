@@ -1,47 +1,113 @@
-# Astro Starter Kit: Minimal
+# FiveM Resource Boilerplate
+
+This boilerplate is a structured foundation for creating modern FiveM resources using TypeScript for both client and server scripts, combined with Astro for statically generating your resource's UI.
+
+## Features
+
+- **TypeScript Support:** Write client and server scripts in TypeScript, compiled down to optimized JavaScript.
+- **Astro Integration:** Static generation of UI components for high-performance and SEO-friendly UIs.
+- **Tailwind CSS:** Utility-first CSS framework for rapid UI styling.
+- **Organized Project Structure:** Clearly defined directories for easy maintainability and scalability.
+
+## Project Structure
+
+```
+.
+├── dist
+│   ├── client           # Compiled client scripts
+│   ├── server           # Compiled server scripts
+│   └── web              # Static Astro-generated files
+│       └── index.html
+├── src
+│   ├── astro            # Astro UI source code
+│   │   ├── pages
+│   │   ├── styles
+│   │   └── tsconfig.json
+│   └── fivem            # TypeScript client and server scripts
+│       ├── client
+│       ├── server
+│       └── tsconfig.json
+├── astro.config.mjs     # Astro build configuration
+├── fxmanifest.lua       # FiveM resource manifest
+└── package.json         # Project dependencies and scripts
+```
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org) (v18 or higher)
+- [FiveM](https://fivem.net/) environment
+
+### Installation
 
 ```sh
-npm create astro@latest -- --template minimal
+git clone <this-repository-url>
+cd <repository-directory>
+npm install
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+### Development
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Start Astro in development mode:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+This will serve Astro UI on a local development server (default: `http://localhost:3000`).
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Building the Resource
 
-Any static assets, like images, can be placed in the `public/` directory.
+Build Astro and TypeScript scripts for production deployment:
 
-## 🧞 Commands
+```sh
+npm run build
+```
 
-All commands are run from the root of the project, from a terminal:
+The compiled output will be generated in the `dist` directory.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Deploying to FiveM
 
-## 👀 Want to learn more?
+Ensure your `fxmanifest.lua` correctly references the compiled scripts and UI:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```lua
+fx_version 'cerulean'
+game 'gta5'
+
+ui_page 'dist/web/index.html'
+
+files {
+  'dist/web/index.html',
+  'dist/web/**/*.css'
+}
+
+client_scripts {
+  'dist/client/*.js'
+}
+
+server_scripts {
+  'dist/server/*.js'
+}
+```
+
+Place the entire resource folder in your FiveM `resources` directory, and add the resource name to your `server.cfg`:
+
+```lua
+ensure your_resource_name
+```
+
+## Scripts
+
+- `npm run dev`: Run Astro development server
+- `npm run build`: Build Astro and FiveM scripts for production
+- `npm run build:fivem`: Compile TypeScript for client and server
+- `npm run build:astro`: Build Astro static files
+
+## License
+
+MIT © Your Name
+
+---
+
+Enjoy building your FiveM resources!
