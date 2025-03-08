@@ -11,5 +11,6 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   outDir: './dist/web',
-  integrations: [react()]
+  integrations: [react()],
+  output: "static",
 });
