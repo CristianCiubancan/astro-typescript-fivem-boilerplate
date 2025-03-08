@@ -5,7 +5,7 @@ This boilerplate is a structured foundation for creating modern FiveM resources 
 ## Features
 
 - **TypeScript Support:** Write client and server scripts in TypeScript, compiled down to optimized JavaScript.
-- **Astro Integration:** Static generation of UI components for high-performance and SEO-friendly UIs.
+- **Astro Integration:** Static generation of UI components for high-performance UIs.
 - **Tailwind CSS:** Utility-first CSS framework for rapid UI styling.
 - **Organized Project Structure:** Clearly defined directories for easy maintainability and scalability.
 
