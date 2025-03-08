@@ -1,14 +1,11 @@
+// server.ts
 /// <reference types="@citizenfx/server" />
 
-// Log when the server resource starts.
-on('onResourceStart', (resourceName: string) => {
-    if (resourceName === GetCurrentResourceName()) {
-      console.log(`[SERVER] Resource '${resourceName}' started!`);
-    }
-  });
-  
-  // Register a server command to test functionality.
-  RegisterCommand('serverHello', (source: number, args: string[], rawCommand: string) => {
-    console.log(`[SERVER] Hello from the server! Source: ${source}`);
-  }, false);
-  
+// Example: Listen for a net event from the client
+onNet('exampleServerEvent', (someData: any) => {
+  console.log('Server received data from client:', someData);
+
+  // Send something back to that client
+  // 'source' is the player ID that triggered the event
+  emitNet('exampleClientEvent', source, { message: 'Hello from the server!' });
+});

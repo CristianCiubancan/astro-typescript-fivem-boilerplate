@@ -7,7 +7,7 @@ ui_page 'dist/web/index.html'
 -- Include Astro-built files
 files {
   'dist/web/index.html',
---   'dist/web/**/*.js',
+  'dist/web/**/*.js',
   'dist/web/**/*.css'
 }
 

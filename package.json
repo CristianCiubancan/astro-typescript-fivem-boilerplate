@@ -1,24 +1,27 @@
 {
-  "name": "character-creation",
+  "name": "astro-typescript-fivem-boilerplate",
+  "description": "A boilerplate for FiveM resources using Astro and TypeScript",
   "type": "module",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "build:astro": "astro build --tsconfig ./src/astro/tsconfig.json",
+    "dev": "astro dev",
+    "build:astro": "astro build",
     "build:fivem": "tsc -p ./src/fivem/tsconfig.json",
-    "build": "npm run build:fivem && npm run build:astro",
-    "dev": "astro dev --tsconfig ./src/astro/tsconfig.json",
+    "build": "npm run build:astro && npm run build:fivem",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.0.12",
-    "astro": "^5.4.2",
-    "tailwindcss": "^4.0.12",
     "@citizenfx/client": "^2.0.13185-1",
     "@citizenfx/server": "^2.0.13185-1",
-    "@rollup/plugin-typescript": "^12.1.2",
-    "rollup": "^4.34.9",
-    "typescript": "^5.8.2"
+    "@astrojs/react": "^4.2.1",
+    "@tailwindcss/vite": "^4.0.12",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "astro": "^5.4.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.12"
   }
 }
